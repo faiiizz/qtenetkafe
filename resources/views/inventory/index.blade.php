@@ -2,7 +2,7 @@
 @section('content-wrapper')
 
 <div class="container p-4">
-    @if (session()->has('pesan_tambah'))
+    {{-- @if (session()->has('pesan_tambah'))
     <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
         Data Berhasil di Tambah
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -17,7 +17,7 @@
         {{ session('pesan_hapus') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @endif
+    @endif --}}
 
     <center>
         <h2>Inventory</h2>
@@ -44,16 +44,38 @@
             <td>
                 <a href="inventory/{{ $inv->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i>Edit</a>
 
-                <form action="inventory/{{ $inv->id }}" method="post" class="d-inline">
-                    @method('DELETE')
-                    @csrf
-
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data ?')"><i class="fa fa-trash"></i> Delete</button>
+                <a href="#" class="btn btn-danger delete" data-id="{{ $inv->id}}" data-nama="{{ $inv->nama_barang}}"><i class="fa fa-trash"></i>Delete</a>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     {{ $inventories->links('pagination::bootstrap-5')}}
 </div>
+<script type="text/javascript">
+    $('.delete').click(function() {
+        var invid = $(this).attr('data-id');
+        var nama_barang = $(this).attr('data-nama');
+
+        Swal.fire({
+            title: 'Yang Bener ?',
+            text: "Kamu Mau Menghapus Inventory dengan Nama "+nama_barang+" "+"?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location= "/inventory/"+invid+""
+                Swal.fire(
+                    'Deleted!',
+                    'Catatan Berhasil dihapus.',
+                    'success'
+                );
+            }
+        });
+    });
+</script>
 @endsection

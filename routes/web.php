@@ -32,7 +32,7 @@ Route::get('/dashboard', function () {
 
 
 // Route::resource('catatan', CatatanController::class);
-Route::resource('inventory', InventoryController::class);
+// Route::resource('inventory', InventoryController::class);
 Route::resource('pemasukan', PemasukanController::class);
 Route::resource('pengeluaran', PengeluaranController::class);
 Route::resource('pemesanan', PemesananController::class);
@@ -48,3 +48,11 @@ Route::get('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@show');
 Route::get('/catatan/{catatan}/edit', 'App\Http\Controllers\CatatanController@edit');
 Route::put('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@update');
 Route::get('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@destroy');
+
+Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
+Route::get('/inventory/create', 'App\Http\Controllers\InventoryController@create');
+Route::post('/inventory', 'App\Http\Controllers\InventoryController@store');
+Route::get('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@show');
+Route::get('/inventory/{inventory}/edit', 'App\Http\Controllers\InventoryController@edit');
+Route::put('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@update');
+Route::get('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@destroy');

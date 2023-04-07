@@ -43,7 +43,7 @@ class CatatanController extends Controller
         ]);
 
         Catatan::create($validatedData);
-        return redirect('/catatan')->with('success', 'aktivasi success');
+        return redirect('/catatan')->with('success', 'Create Successfully');
     }
 
     /**
@@ -76,7 +76,7 @@ class CatatanController extends Controller
         ]);
 
         Catatan::where('id', $catatan->id)->update($validatedData);
-        return redirect('/catatan')->with('success', 'aktivasi success');
+        return redirect('/catatan')->with('success', 'Data berhasil di Update');
     }
 
     /**
