@@ -15,7 +15,7 @@ class InventoryController extends Controller
         return view(
             'inventory.index',
             [
-                'inventories' => Inventory::latest()->paginate(6)
+                'inventories' => Inventory::paginate(6)
             ]
         );
     }
@@ -44,7 +44,7 @@ class InventoryController extends Controller
             ]);
 
             Inventory::create($validatedData);
-            return redirect('/inventory')->with('success', 'Create Successfully');
+            return redirect('/inventory')->with('success', 'Inventory Sukses ditambahkan');
         }
 
     }

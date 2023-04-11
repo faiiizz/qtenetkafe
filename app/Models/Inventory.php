@@ -19,4 +19,5 @@ class Inventory extends Model
         'satuan',
 
     ];
+
 }

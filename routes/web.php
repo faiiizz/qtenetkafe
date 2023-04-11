@@ -1,15 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CatatanController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\PengeluaranController;
-use App\Http\Controllers\PemasukanController;
-use App\Http\Controllers\DatpesController;
-use App\Http\Controllers\PemesananController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PengambilanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,16 +22,6 @@ Route::get('/dashboard', function () {
 });
 
 
-// Route::resource('catatan', CatatanController::class);
-// Route::resource('inventory', InventoryController::class);
-Route::resource('pemasukan', PemasukanController::class);
-Route::resource('pengeluaran', PengeluaranController::class);
-Route::resource('pemesanan', PemesananController::class);
-Route::resource('datpes', DatpesController::class);
-Route::resource('menu', MenuController::class);
-Route::resource('profile', ProfileController::class);
-Route::resource('pengambilan', PengambilanController::class);
-
 Route::get('/catatan', 'App\Http\Controllers\CatatanController@index');
 Route::get('/catatan/create', 'App\Http\Controllers\CatatanController@create');
 Route::post('/catatan', 'App\Http\Controllers\CatatanController@store');
@@ -56,3 +37,11 @@ Route::get('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@s
 Route::get('/inventory/{inventory}/edit', 'App\Http\Controllers\InventoryController@edit');
 Route::put('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@update');
 Route::get('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@destroy');
+
+Route::get('/pengambilan', 'App\Http\Controllers\PengambilanController@index');
+Route::get('/pengambilan/create', 'App\Http\Controllers\PengambilanController@create');
+Route::post('/pengambilan', 'App\Http\Controllers\PengambilanController@store');
+Route::get('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanController@show');
+Route::get('/pengambilan/{pengambilan}/edit', 'App\Http\Controllers\PengambilanController@edit');
+Route::put('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanController@update');
+Route::get('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanController@destroy');

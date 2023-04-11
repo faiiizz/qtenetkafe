@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content-wrapper')
 
-<div class=" row justify-content-center" >
+<div class=" row justify-content-center p-5" >
 	<div class="col-lg-6">
 	<form  method="post" action ="/inventory/{{ $inventories->id }}">
 		@method('PUT')
@@ -32,7 +32,7 @@
 
                     <div class="container p-3">
                     <div class="row">
-                        <a href="/inventory" class="btn btn-outline-dark col-md-3 offset-md-8">Kembali</a>
+                        <a href="/inventory" class="btn btn-outline-danger col-md-3 offset-md-8">Kembali</a>
 
                         <button type="submit" name="submit" class="btn btn-success col-md-3 offset-md-8 mt-3">Update</button>
                     </div>

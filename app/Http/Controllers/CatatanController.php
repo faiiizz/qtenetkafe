@@ -17,7 +17,7 @@ class CatatanController extends Controller
         return view(
             'catatan.index',
             [
-                'catatans' => Catatan::latest()->paginate(6)
+                'catatans' => Catatan::paginate(6)
             ]
         );
     }

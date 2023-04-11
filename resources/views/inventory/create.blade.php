@@ -65,7 +65,7 @@
 
                 <div class="container p-3">
                     <div class="row">
-                        <a href="/inventory" class="btn btn-outline-dark col-md-3 offset-md-8">Kembali</a>
+                        <a href="/inventory" class="btn btn-outline-danger col-md-3 offset-md-8">Kembali</a>
 
                         <button type="submit" name="submit" class="btn btn-success col-md-3 offset-md-8 mt-3">Create</button>
                     </div>
