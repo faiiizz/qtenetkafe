@@ -43,9 +43,9 @@
             <td>{{$ctt->tanggal}}</td>
             <td>{{$ctt->keterangan}}</td>
             <td>
-                <a href="catatan/{{ $ctt->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i>Edit</a>
+                <a href="catatan/{{ $ctt->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
 
-                <a href="#" class="btn btn-danger delete" data-id="{{ $ctt->id}}" data-nama="{{ $ctt->nama}}"><i class="fa fa-trash"></i>Delete</a>
+                <a href="#" class="btn btn-danger delete" data-id="{{ $ctt->id}}" data-nama="{{ $ctt->nama}}"><i class="fa fa-trash"></i> Delete</a>
 
                 <!-- <form action="catatan/{{ $ctt->id }}" method="post" class="d-inline">
                     @method('DELETE')
@@ -67,7 +67,7 @@
 
         Swal.fire({
             title: 'Yang Bener ?',
-            text: "Kamu Mau Menghapus catatan dengan Nama "+nama+" "+"?",
+            text: "Kamu Mau Menghapus Catatan dengan Nama "+nama+" "+"?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

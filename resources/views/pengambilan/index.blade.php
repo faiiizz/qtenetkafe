@@ -39,7 +39,7 @@
 
         Swal.fire({
             title: 'Apakah Anda Yakin?',
-            text: "Anda ingin menghapus Inventory dengan Nama " + inventory_id + "?",
+            text: "Anda ingin menghapus Pengambilan dengan Nama " + inventory_id + "?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

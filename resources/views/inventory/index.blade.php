@@ -42,9 +42,9 @@
             <td>{{$inv->harga}}</td>
             <td>{{$inv->satuan}}</td>
             <td>
-                <a href="inventory/{{ $inv->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i>Edit</a>
+                <a href="inventory/{{ $inv->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
 
-                <a href="#" class="btn btn-danger delete" data-id="{{ $inv->id}}" data-nama="{{ $inv->nama_barang}}"><i class="fa fa-trash"></i>Delete</a>
+                <a href="#" class="btn btn-danger delete" data-id="{{ $inv->id}}" data-nama="{{ $inv->nama_barang}}"><i class="fa fa-trash"></i> Delete</a>
                 </form>
             </td>
         </tr>

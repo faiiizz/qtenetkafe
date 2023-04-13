@@ -30,6 +30,7 @@ Route::get('/catatan/{catatan}/edit', 'App\Http\Controllers\CatatanController@ed
 Route::put('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@update');
 Route::get('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@destroy');
 
+
 Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
 Route::get('/inventory/create', 'App\Http\Controllers\InventoryController@create');
 Route::post('/inventory', 'App\Http\Controllers\InventoryController@store');
@@ -38,6 +39,7 @@ Route::get('/inventory/{inventory}/edit', 'App\Http\Controllers\InventoryControl
 Route::put('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@update');
 Route::get('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@destroy');
 
+
 Route::get('/pengambilan', 'App\Http\Controllers\PengambilanController@index');
 Route::get('/pengambilan/create', 'App\Http\Controllers\PengambilanController@create');
 Route::post('/pengambilan', 'App\Http\Controllers\PengambilanController@store');
@@ -45,3 +47,12 @@ Route::get('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanContro
 Route::get('/pengambilan/{pengambilan}/edit', 'App\Http\Controllers\PengambilanController@edit');
 Route::put('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanController@update');
 Route::get('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanController@destroy');
+
+
+Route::get('/pengeluaran', 'App\Http\Controllers\PengeluaranController@index');
+Route::get('/pengeluaran/create', 'App\Http\Controllers\PengeluaranController@create');
+Route::post('/pengeluaran', 'App\Http\Controllers\PengeluaranController@store');
+Route::get('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranController@show');
+Route::get('/pengeluaran/{pengeluaran}/edit', 'App\Http\Controllers\PengeluaranController@edit');
+Route::put('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranController@update');
+Route::get('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranController@destroy');
