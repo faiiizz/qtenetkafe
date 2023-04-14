@@ -5,7 +5,8 @@
     <center>
         <h2>Pengeluaran</h2>
     </center>
-    <a href="/pengeluaran/create" class="btn btn-dark"><i class="fa fa-plus"></i> Tambah Pengeluaran</a>
+    <a href="/pengeluaran/create" class="btn btn-success"><i class="fa fa-plus"></i> Tambah Pengeluaran</a>
+    <a class="btn btn-default" href="/cetakluar" target="_blank"><i class="fa fa-print"></i> Cetak PDF</a>
     <table class="table table-striped my-4 text-center">
         <tr style="background-color: gray;">
             <th>No</th>

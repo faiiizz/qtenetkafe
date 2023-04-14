@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengeluaran;
 use App\Models\Inventory;
+use PDF;
 use Illuminate\Http\Request;
 
 class PengeluaranController extends Controller
@@ -19,6 +20,15 @@ class PengeluaranController extends Controller
                 'pengeluarans' => Pengeluaran::paginate(6),
             ]
         );
+    }
+
+    public function cetakluar()
+    {
+        $pengeluarans = Pengeluaran::all();
+
+        View()->share('pengeluarans', $pengeluarans);
+        $pdf = PDF::loadView('pengeluaran/pengeluaran-pdf');
+        return $pdf->download('Laporan Pengeluaran.pdf');
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengambilan;
+use PDF;
 use App\Models\Inventory;
 
 
@@ -20,6 +21,15 @@ class PengambilanController extends Controller
                 'pengambilans' => Pengambilan::paginate(6),
             ]
         );
+    }
+
+    public function cetakambil()
+    {
+        $pengambilans = Pengambilan::all();
+
+        View()->share('pengambilans', $pengambilans);
+        $pdf = PDF::loadView('pengambilan/pengambilan-pdf');
+        return $pdf->download('Laporan Pengambilan.pdf');
     }
 
     /**

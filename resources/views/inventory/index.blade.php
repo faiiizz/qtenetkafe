@@ -22,7 +22,8 @@
     <center>
         <h2>Inventory</h2>
     </center>
-    <a href="/inventory/create" class="btn btn-dark"><i class="fa fa-plus"></i>     Tambah Inventory</a>
+    <a href="/inventory/create" class="btn btn-success"><i class="fa fa-plus"></i>     Tambah Inventory</a>
+    <a class="btn btn-default" href="/cetakinv" target="_blank"><i class="fa fa-print"></i> Cetak PDF</a>
     <table class="table table-striped my-4  text-center">
         <tr style="background-color: gray;">
             <th>No</th>

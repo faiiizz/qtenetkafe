@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use PDF;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -28,6 +29,22 @@ class InventoryController extends Controller
         return view('inventory.create');
     }
 
+    public function cetakinv()
+    {
+        $inventories = Inventory::all();
+
+        View()->share('inventories', $inventories);
+        $pdf = PDF::loadView('inventory/inventory-pdf');
+        return $pdf->download('Laporan Inventory.pdf');
+
+    //    $inventory = Inventory::select('*')
+    //              ->get();
+
+    //    $pdf = DomPDFPDF::loadView('cetak.cetakinv', ['inventory' => $inventory]);
+    //    return $pdf->download('Laporan-Data-Inventory.pdf');
+        //   $pdf = Pdf::loadView('cetak.cetakinv', $inventory);
+        //   return $pdf->download('inventory.pdf');
+    }
     /**
      * Store a newly created resource in storage.
      */

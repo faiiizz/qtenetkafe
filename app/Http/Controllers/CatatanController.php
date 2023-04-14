@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Catatan;
+use PDF;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -21,13 +22,22 @@ class CatatanController extends Controller
             ]
         );
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         return view('catatan.create');
+    }
+
+    public function cetakcatat()
+    {
+        $catatans = Catatan::all();
+
+        View()->share('catatans', $catatans);
+        $pdf = PDF::loadView('catatan/catatan-pdf');
+        return $pdf->download('Laporan Catatan.pdf');
+
     }
 
     /**

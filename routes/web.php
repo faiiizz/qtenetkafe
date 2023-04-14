@@ -29,6 +29,7 @@ Route::get('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@show');
 Route::get('/catatan/{catatan}/edit', 'App\Http\Controllers\CatatanController@edit');
 Route::put('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@update');
 Route::get('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@destroy');
+Route::get('/cetakcatat', 'App\Http\Controllers\CatatanController@cetakcatat');
 
 
 Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
@@ -38,6 +39,7 @@ Route::get('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@s
 Route::get('/inventory/{inventory}/edit', 'App\Http\Controllers\InventoryController@edit');
 Route::put('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@update');
 Route::get('/inventory/{inventory}', 'App\Http\Controllers\InventoryController@destroy');
+Route::get('/cetakinv', 'App\Http\Controllers\InventoryController@cetakinv');
 
 
 Route::get('/pengambilan', 'App\Http\Controllers\PengambilanController@index');
@@ -47,7 +49,7 @@ Route::get('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanContro
 Route::get('/pengambilan/{pengambilan}/edit', 'App\Http\Controllers\PengambilanController@edit');
 Route::put('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanController@update');
 Route::get('/pengambilan/{pengambilan}', 'App\Http\Controllers\PengambilanController@destroy');
-
+Route::get('/cetakambil', 'App\Http\Controllers\PengambilanController@cetakambil');
 
 Route::get('/pengeluaran', 'App\Http\Controllers\PengeluaranController@index');
 Route::get('/pengeluaran/create', 'App\Http\Controllers\PengeluaranController@create');
@@ -56,3 +58,5 @@ Route::get('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranContro
 Route::get('/pengeluaran/{pengeluaran}/edit', 'App\Http\Controllers\PengeluaranController@edit');
 Route::put('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranController@update');
 Route::get('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranController@destroy');
+Route::get('/cetakluar', 'App\Http\Controllers\PengeluaranController@cetakluar');
+

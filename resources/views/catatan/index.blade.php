@@ -27,7 +27,8 @@
     <center>
         <h2>Catatan</h2>
     </center>
-    <a href="/catatan/create" class="btn btn-dark"><i class="fa fa-plus"></i> Tambah Catatan</a>
+    <a href="/catatan/create" class="btn btn-success"><i class="fa fa-plus"></i>  Tambah Catatan</a>
+    <a class="btn btn-default" href="/cetakcatat" target="_blank"><i class="fa fa-print"></i> Cetak PDF</a>
     <table class="table table-striped my-4  text-center">
         <tr style="background-color: gray;">
             <th>No</th>
