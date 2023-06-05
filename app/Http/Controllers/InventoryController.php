@@ -98,7 +98,7 @@ class InventoryController extends Controller
         ]);
 
         Inventory::where('id', $inventory->id)->update($validatedData);
-        return redirect('/inventory')->with('success', 'Data berhasil di Update');
+        return redirect('/inventory')->with('success', 'Update data berhasil');
     }
 
     /**

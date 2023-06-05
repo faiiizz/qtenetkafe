@@ -10,7 +10,7 @@
     <table class="table table-striped my-4 text-center">
         <tr style="background-color: gray;">
             <th>No</th>
-            <th>ID barang</th>
+            <th>Nama barang</th>
             <th>Jumlah</th>
             <th>Tanggal</th>
             <th>Keterangan</th>
@@ -19,7 +19,7 @@
         @foreach ($pengambilans as $ambil)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $ambil->inventory_id }}</td>
+            <td>{{ $ambil->inventory->nama_barang }}</td>
             <td>{{ $ambil->jumlah }}</td>
             <td>{{ $ambil->tanggal }}</td>
             <td>{{ $ambil->keterangan }}</td>

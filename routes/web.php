@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    return view('welcome');
-});
+Route::middleware(['cekLogin'])->group(function () {
 
+Route::get('/dashboard', function () {
+    return view ('welcome');
+});
 
 Route::get('/catatan', 'App\Http\Controllers\CatatanController@index');
 Route::get('/catatan/create', 'App\Http\Controllers\CatatanController@create');
@@ -59,4 +60,35 @@ Route::get('/pengeluaran/{pengeluaran}/edit', 'App\Http\Controllers\PengeluaranC
 Route::put('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranController@update');
 Route::get('/pengeluaran/{pengeluaran}', 'App\Http\Controllers\PengeluaranController@destroy');
 Route::get('/cetakluar', 'App\Http\Controllers\PengeluaranController@cetakluar');
+
+Route::get('/menu', 'App\Http\Controllers\MenuController@index');
+Route::get('/menu/create', 'App\Http\Controllers\MenuController@create');
+Route::post('/menu', 'App\Http\Controllers\MenuController@store');
+Route::get('/menu/{menu}', 'App\Http\Controllers\MenuController@show');
+Route::get('/menu/{menu}/edit', 'App\Http\Controllers\MenuController@edit');
+Route::put('/menu/{menu}', 'App\Http\Controllers\MenuController@update');
+Route::get('/menu/{menu}', 'App\Http\Controllers\MenuController@destroy');
+
+Route::get('/profile', 'App\Http\Controllers\ProfileController@index');
+
+});
+
+Route::get('/login', 'App\Http\Controllers\LoginController@login');
+Route::post('/loginProses', 'App\Http\Controllers\LoginController@loginProses');
+// Route::post('/verify', 'ForgotPasswordController@verifyOtp');
+// Route::post('/resend', 'ForgotPasswordController@resendOtp');
+Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
+// Route::post('/forgot', 'ForgotPasswordController@forgot');
+// Route::get('/verifyOtp/{id}', 'ForgotPasswordController@verifyOtp');
+// Route::post('/resendOtp', 'ForgotPasswordController@resendOtp');
+// Route::post('reset/{id}', 'ForgotPasswordController@reset');
+
+Route::get('/registrasi', 'App\Http\Controllers\LoginController@registrasi');
+Route::post('/registrasiProses', 'App\Http\Controllers\LoginController@registrasiProses');
+
+
+Route::get('/menufe', 'App\Http\Controllers\MenuController@menufe');
+Route::get('/menufe/{menu}', 'App\Http\Controllers\MenuController@show');
+
+// Route::post('/login', [LoginController::class,'authenticate']);
 

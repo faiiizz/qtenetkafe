@@ -15,10 +15,11 @@ class PengambilanController extends Controller
      */
     public function index()
     {
+        $pengambilans = Pengambilan::with('inventory');
         return view(
             'pengambilan.index',
             [
-                'pengambilans' => Pengambilan::paginate(6),
+                'pengambilans' => $pengambilans->paginate(6)
             ]
         );
     }
@@ -26,7 +27,6 @@ class PengambilanController extends Controller
     public function cetakambil()
     {
         $pengambilans = Pengambilan::all();
-
         View()->share('pengambilans', $pengambilans);
         $pdf = PDF::loadView('pengambilan/pengambilan-pdf');
         return $pdf->download('Laporan Pengambilan.pdf');

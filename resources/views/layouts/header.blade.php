@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="Website.Icon" type="jpeg" href="{{ asset('AdminLTE') }}/dist/img/gambarqte.jpeg">
   <title>@yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->

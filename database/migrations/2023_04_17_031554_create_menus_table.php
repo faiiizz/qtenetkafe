@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('datpesans', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_menu');
+            $table->string('gmbr_menu');
+            $table->text('deskripsi');
+            $table->double('harga', 8,2);
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('datpesans');
+        Schema::dropIfExists('menus');
     }
 };

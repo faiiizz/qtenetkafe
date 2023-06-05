@@ -24,25 +24,23 @@
     <table class="table table-striped my-4  text-center">
         <tr style="background-color: gray;">
             <th>No</th>
-            <th>Kode Barang</th>
-            <th>Nama Barang</th>
-            <th>Stok</th>
-            <th>Harga</th>
-            <th>Satuan</th>
+            <th>User</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
             <th width="190px">Aksi</th>
         </tr>
-        @foreach ($inventories as $inv)
+        @foreach ($datpesans as $datpes)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$inv->kd_barang}}</td>
-            <td>{{$inv->nama_barang}}</td>
-            <td>{{$inv->stok}}</td>
-            <td>{{$inv->harga}}</td>
-            <td>{{$inv->satuan}}</td>
+            <td>{{ $datpes->user->name }}</td>
+            <td>{{ $datpes->product->name }}</td>
+            <td>{{ $datpes->quantity }}</td>
+            <td>{{ $datpes->price }}</td>
             <td>
-                <a href="inventory/{{ $inv->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i>Edit</a>
+                <a href="datpes/{{ $datpes->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i>Edit</a>
 
-                <form action="inventory/{{ $inv->id }}" method="post" class="d-inline">
+                <form action="datpes/{{ $datpes->id }}" method="post" class="d-inline">
                     @method('DELETE')
                     @csrf
 

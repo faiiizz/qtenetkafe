@@ -12,7 +12,7 @@
             <th>No</th>
             <th>Pengeluaran</th>
             <th>Tanggal</th>
-            <th>Inventory_id</th>
+            <th>Nama barang</th>
             <th>Jumlah</th>
             <th>Rincian</th>
             <th width="190px">Aksi</th>
@@ -20,9 +20,9 @@
         @foreach ($pengeluarans as $luar)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $luar->pengeluaran }}</td>
+            <td> Rp {{ number_format($luar->pengeluaran, 0, ',', '.')}}</td>
             <td>{{ $luar->tanggal }}</td>
-            <td>{{ $luar->inventory_id }}</td>
+            <td>{{ $luar->inventory->nama_barang }}</td>
             <td>{{ $luar->jumlah }}</td>
             <td>{{ $luar->rincian }}</td>
             <td>

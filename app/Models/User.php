@@ -4,14 +4,13 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, SoftDeletes, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -26,11 +25,11 @@ class User extends Authenticatable
         'email',
         'avatar',
         'email_verified_at',
-        'birth_date',
+        'no_hp',
+        'role',
         'password',
         'password_confirmation',
-        'role',
-        'no_hp',
+
     ];
 
     /**
@@ -40,12 +39,12 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        'password_confirmation',
     ];
 
     public function scopeOfSelect($query)
     {
-        return $query->select('user_id', 'nama', 'email', 'username', 'avatar', 'birth_date','role_id', 'created_at', 'updated_at');
+        return $query->select('user_id', 'nama', 'email', 'username', 'avatar', 'role_id', 'created_at', 'updated_at');
     }
 
     public function scopeFilter($query, $filter)
@@ -56,9 +55,7 @@ class User extends Authenticatable
                     case 'keyword':
                         $query->where(function ($query2) use ($value) {
                             $query2->where ('nama', 'like', '%' . $value . '%')
-                                ->orWhere('email', 'like', '%' . $value . '%')
-                                ->orWhere('username', 'like', '%' . $value . '%')
-                                ->orWhere('birth_date', 'like', '%' . $value . '%');
+                                ->orWhere('email', 'like', '%' . $value . '%');
                         });
                         break;
                     case 'user_id':

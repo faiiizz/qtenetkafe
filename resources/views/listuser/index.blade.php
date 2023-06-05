@@ -20,32 +20,29 @@
     @endif --}}
 
     <center>
-        <h2>Inventory</h2>
+        <h2>List User</h2>
     </center>
-    <a href="/inventory/create" class="btn btn-success"><i class="fa fa-plus"></i>     Tambah Inventory</a>
-    <a class="btn btn-default" href="/cetakinv" target="_blank"><i class="fa fa-print"></i> Cetak PDF</a>
+    <a class="btn btn-default" href="/cetaklist" target="_blank"><i class="fa fa-print"></i> Cetak PDF</a>
     <table class="table table-striped my-4  text-center">
         <tr style="background-color: gray;">
             <th>No</th>
-            <th>Kode Barang</th>
-            <th>Nama Barang</th>
-            <th>Stok</th>
-            <th>Harga</th>
-            <th>Satuan</th>
+            <th>Nama User</th>
+            <th>Email</th>
+            <th>No HP</th>
+            <th>Role</th>
             <th width="190px">Aksi</th>
         </tr>
-        @foreach ($inventories as $inv)
+        @foreach ($inventories as $listuser)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$inv->kd_barang}}</td>
-            <td>{{$inv->nama_barang}}</td>
-            <td>{{$inv->stok}}</td>
-            <td> Rp {{ number_format($inv->harga, 0, ',', '.')}}</td>
-            <td>{{$inv->satuan}}</td>
+            <td>{{$listuser->nama}}</td>
+            <td>{{$listuser->email}}</td>
+            <td>{{$listuser->no_hp}}</td>
+            <td>{{$listuser->role}}</td>
             <td>
-                <a href="inventory/{{ $inv->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                <a href="listuser/{{ $listuser->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
 
-                <a href="#" class="btn btn-danger delete" data-id="{{ $inv->id}}" data-nama="{{ $inv->nama_barang}}"><i class="fa fa-trash"></i> Delete</a>
+                <a href="#" class="btn btn-danger delete" data-id="{{ $listuser->id}}" data-nama="{{ $listuser->nama}}"><i class="fa fa-trash"></i> Delete</a>
                 </form>
             </td>
         </tr>
@@ -57,11 +54,11 @@
 <script type="text/javascript">
     $('.delete').click(function() {
         var invid = $(this).attr('data-id');
-        var nama_barang = $(this).attr('data-nama');
+        var nama = $(this).attr('data-nama');
 
         Swal.fire({
             title: 'Yang Bener ?',
-            text: "Kamu Mau Menghapus Inventory dengan Nama "+nama_barang+" "+"?",
+            text: "Kamu Mau Menghapus User dengan Nama "+nama+" "+"?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

@@ -14,10 +14,11 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
+        $pengeluarans = Pengeluaran::with('inventory');
         return view(
             'pengeluaran.index',
             [
-                'pengeluarans' => Pengeluaran::paginate(6),
+                'pengeluarans' => $pengeluarans->paginate(6)
             ]
         );
     }
@@ -72,7 +73,7 @@ class PengeluaranController extends Controller
         // $pengambilan->save();
 
         Pengeluaran::create($validate);
-        return redirect('/pengeluaran')->with('success', 'Pengeluaran Sukses!!');
+        return redirect('/pengeluaran')->with('success', 'Pengeluaran successfully');
     }
 
     /**

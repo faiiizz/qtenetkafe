@@ -20,48 +20,51 @@
     @endif --}}
 
     <center>
-        <h2>Inventory</h2>
+        <h2>Menu</h2>
     </center>
-    <a href="/inventory/create" class="btn btn-success"><i class="fa fa-plus"></i>     Tambah Inventory</a>
-    <a class="btn btn-default" href="/cetakinv" target="_blank"><i class="fa fa-print"></i> Cetak PDF</a>
+    <a href="/menu/create" class="btn btn-success"><i class="fa fa-plus"></i>     Tambah Menu</a>
     <table class="table table-striped my-4  text-center">
         <tr style="background-color: gray;">
             <th>No</th>
-            <th>Kode Barang</th>
-            <th>Nama Barang</th>
-            <th>Stok</th>
+            <th>Nama Menu</th>
+            <th>Gambar</th>
+            <th>Deskripsi</th>
             <th>Harga</th>
-            <th>Satuan</th>
             <th width="190px">Aksi</th>
         </tr>
-        @foreach ($inventories as $inv)
+        @foreach ($menus as $menu)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$inv->kd_barang}}</td>
-            <td>{{$inv->nama_barang}}</td>
-            <td>{{$inv->stok}}</td>
-            <td> Rp {{ number_format($inv->harga, 0, ',', '.')}}</td>
-            <td>{{$inv->satuan}}</td>
+            <td>{{$menu->nama_menu}}</td>
             <td>
-                <a href="inventory/{{ $inv->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                @if ($menu->gmbr_menu)
+                    <img id="myImg"
+                        src="{{ url('images') . '/' . $menu->gmbr_menu }}"
+                        alt="{{ $menu->gmbr_menu }}" style="max-width:80px">
+                @endif
+            </td>
+            <td>{{$menu->deskripsi}}</td>
+            <td>Rp {{ number_format($menu->harga, 0, ',', '.')}}</td>
+            <td>
+                <a href="menu/{{ $menu->id }}/edit" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
 
-                <a href="#" class="btn btn-danger delete" data-id="{{ $inv->id}}" data-nama="{{ $inv->nama_barang}}"><i class="fa fa-trash"></i> Delete</a>
+                <a href="#" class="btn btn-danger delete" data-id="{{ $menu->id}}" data-nama="{{ $menu->nama_menu}}"><i class="fa fa-trash"></i> Delete</a>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    {{ $inventories->links('pagination::bootstrap-5')}}
+    {{ $menus->links('pagination::bootstrap-5')}}
 </div>
 <script type="text/javascript">
     $('.delete').click(function() {
-        var invid = $(this).attr('data-id');
-        var nama_barang = $(this).attr('data-nama');
+        var menuid = $(this).attr('data-id');
+        var nama_menu = $(this).attr('data-nama');
 
         Swal.fire({
             title: 'Yang Bener ?',
-            text: "Kamu Mau Menghapus Inventory dengan Nama "+nama_barang+" "+"?",
+            text: "Kamu Mau Menghapus Menu dengan Nama "+nama_menu+" "+"?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -69,10 +72,10 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location= "/inventory/"+invid+""
+                window.location= "/menu/"+menuid+""
                 Swal.fire(
                     'Deleted!',
-                    'Catatan Berhasil dihapus.',
+                    'Menu Berhasil dihapus.',
                     'success'
                 );
             }
