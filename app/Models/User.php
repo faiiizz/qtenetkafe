@@ -28,7 +28,6 @@ class User extends Authenticatable
         'no_hp',
         'role',
         'password',
-        'password_confirmation',
 
     ];
 
@@ -39,7 +38,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'password_confirmation',
     ];
 
     public function scopeOfSelect($query)

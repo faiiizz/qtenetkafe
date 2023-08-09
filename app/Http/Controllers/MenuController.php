@@ -60,7 +60,7 @@ class MenuController extends Controller
                 'nama_menu' => $request->nama_menu,
                 'gmbr_menu' => $nama_foto,
                 'deskripsi' => $request->deskripsi,
-                'harga' => $request->harga
+                'harga' => $request->harga,
             ];
 
 
@@ -73,14 +73,71 @@ class MenuController extends Controller
 
     }
 
+    public function cart()
+    {
+        return view('fe.menufe.pesanan');
+    }
+
     public function menufe()
     {
-        return view(
-            'fe.menufe.index',
-            [
-                'menus' => Menu::paginate(6)
-            ]
-        );
+        $menus = Menu::all();
+        return view('fe.menufe.menuh', compact('menus'));
+    }
+
+
+    public function addToCart($id)
+    {
+        $menu = Menu::findOrFail($id);
+
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$id])){
+            $cart[$id]['jumlah']++;
+        }else {
+            $cart[$id]= [
+                "gmbr_menu" => $menu->gmbr_menu,
+                "nama_menu" => $menu->nama_menu,
+                "deskripsi" => $menu->deskripsi,
+                "harga" => $menu->harga,
+                "jumlah" => 1
+            ];
+        }
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success','Pesanan successful add to cart');
+
+    }
+
+    public function updatePesanan(Request $request)
+    {
+        $id = $request->input('id');
+        $jumlah = $request->input('jumlah');
+
+        if (!is_numeric($id) || !is_numeric($jumlah) || $jumlah < 1) {
+            return response()->json(['message' => 'Invalid input'], 400);
+        }
+
+        $cart = session()->get('cart', []);
+
+        if (array_key_exists($id, $cart)) {
+            $cart[$id]['jumlah'] = $jumlah;
+            session()->put('cart', $cart);
+            return response()->json(['message' => 'Cart successfully updated'], 200);
+        } else {
+            return response()->json(['message' => 'Product not found in cart'], 404);
+        }
+    }
+
+
+    public function hapusPesanan(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product successfully removed!');
+        }
     }
 
     /**

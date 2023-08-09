@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
+use App\Models\Pemesanan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Cart;
 
 class PemesananController extends Controller
 {
@@ -19,7 +23,7 @@ class PemesananController extends Controller
      */
     public function create()
     {
-        //
+        return view('fe.menufe.pemesan');
     }
 
     /**
@@ -27,7 +31,17 @@ class PemesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            // dd($request->all());
+            $validatedData = $request->validate([
+                'kd_meja' => 'required',
+                'nama_pemesan' => 'required',
+            ]);
+
+            Pemesanan::create($validatedData);
+            return redirect('/checkout')->with('success', 'Silahkan melakukan pembayaran');
+        }
+
     }
 
     /**
@@ -37,6 +51,14 @@ class PemesananController extends Controller
     {
         //
     }
+
+    // public function pesan(Request $request, $id)
+    // {
+    //     $menus = Menu::where('id', $id)->first();
+    //     $tanggal = Carbon::now();
+
+    //     //simpan pe
+    // }
 
     /**
      * Show the form for editing the specified resource.

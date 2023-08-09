@@ -14,6 +14,5 @@ class Menu extends Model
         'gmbr_menu',
         'deskripsi',
         'harga',
-
     ];
 }

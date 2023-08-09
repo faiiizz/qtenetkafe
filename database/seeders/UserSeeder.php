@@ -19,7 +19,6 @@ class UserSeeder extends Seeder
             'avatar' => null,
             'email_verified_at' => now(),
             'password' => Hash::make('admin12'),
-            'password_confirmation' => Hash::make('admin12'),
             'role' => 'admin',
             'created_at' => now(),
             'updated_at' => now()
@@ -30,7 +29,6 @@ class UserSeeder extends Seeder
             'avatar' => null,
             'email_verified_at' => now(),
             'password' => Hash::make('superadmin12'),
-            'password_confirmation' => Hash::make('superadmin12'),
             'role' => 'superadmin',
             'created_at' => now(),
             'updated_at' => now()
@@ -41,7 +39,6 @@ class UserSeeder extends Seeder
             'avatar' => null,
             'email_verified_at' => now(),
             'password' => Hash::make('karyawan12'),
-            'password_confirmation' => Hash::make('karyawan12'),
             'role' => 'karyawan',
             'created_at' => now(),
             'updated_at' => now()

@@ -22,7 +22,7 @@
       <li class="nav-item dropdown">
         <li class="nav-item dropdown pe-3">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ url('images').'/'. Auth::user()->avatar }}" alt="Profile" class="rounded-circle">
+                <img src={{ asset('images/'.session()->get('avatar') ) }} alt="Profile" class="rounded-circle">
                 <span>{{ Auth::user()->nama }}</span>
               </a>
 

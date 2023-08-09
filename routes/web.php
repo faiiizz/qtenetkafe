@@ -32,6 +32,15 @@ Route::put('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@update'
 Route::get('/catatan/{catatan}', 'App\Http\Controllers\CatatanController@destroy');
 Route::get('/cetakcatat', 'App\Http\Controllers\CatatanController@cetakcatat');
 
+Route::get('/listuser', 'App\Http\Controllers\UserController@index');
+Route::get('/listuser/create', 'App\Http\Controllers\UserController@create');
+Route::post('/listuser', 'App\Http\Controllers\UserController@store');
+Route::get('/listuser/{listuser}', 'App\Http\Controllers\UserController@show');
+Route::get('/listuser/{listuser}/edit', 'App\Http\Controllers\UserController@edit');
+Route::put('/listuser/{listuser}', 'App\Http\Controllers\UserController@update');
+Route::get('/listuser/{listuser}', 'App\Http\Controllers\UserController@destroy');
+// Route::get('/cetakcatat', 'App\Http\Controllers\UserController@cetakcatat');
+
 
 Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
 Route::get('/inventory/create', 'App\Http\Controllers\InventoryController@create');
@@ -88,6 +97,14 @@ Route::post('/registrasiProses', 'App\Http\Controllers\LoginController@registras
 
 
 Route::get('/menufe', 'App\Http\Controllers\MenuController@menufe');
+Route::get('/addToCart/{id}', 'App\Http\Controllers\MenuController@addToCart')->name('add_to_cart');
+Route::get('/pesanan', 'App\Http\Controllers\MenuController@cart')->name('cart');
+Route::patch('/update-cart', 'App\Http\Controllers\MenuController@updatePesanan')->name('update_cart');
+Route::delete('/remove-from-cart', 'App\Http\Controllers\MenuController@hapusPesanan')->name('remove_from_cart');
+
+Route::get('/pemesan', 'App\Http\Controllers\PemesananController@create');
+Route::post('/check-out', 'App\Http\Controllers\PemesananController@store');
+
 Route::get('/menufe/{menu}', 'App\Http\Controllers\MenuController@show');
 
 // Route::post('/login', [LoginController::class,'authenticate']);

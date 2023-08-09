@@ -22,20 +22,15 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="gmbr_menu" class="form-label">Gambar</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input @error('gmbr_menu') is-invalid @enderror"
-                                        id="gmbr_menu" name="gmbr_menu" accept="image/*">
-                                    <label class="custom-file-label" for="gmbr_menu">Pilih Gambar</label>
-                                </div>
-                            </div>
+                            <label for="gmbr_menu" class="form-label">Gambar Menu</label>
+                            <input class="form-control" type="file" @error('gmbr_menu') is-invalid @enderror id="gmbr_menu" name="gmbr_menu" accept="image/*">
                             @error('gmbr_menu')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                          </div>
+
                         {{-- <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
                             <input type="text" class="form-control @error('deskripsi') is-invalid @enderror"
@@ -57,7 +52,7 @@
                           </div>
                         <div class="mb-3">
                             <label for="harga" class="form-label">Harga</label>
-                            <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga"
+                            <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga"
                                 name="harga" value="{{ old('harga') }}">
                             @error('harga')
                                 <div class="invalid-feedback">

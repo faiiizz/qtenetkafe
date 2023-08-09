@@ -35,6 +35,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ url('/listuser') }}" class="nav-link {{ Request::is('listuser') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            User
+                            {{-- <span class="right badge badge-danger">New</span> --}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ url('/profile') }}" class="nav-link {{ Request::is('profile') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>

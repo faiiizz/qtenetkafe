@@ -11,16 +11,11 @@ class Pemesanan extends Model
     protected $fillable = [
         'nama_pemesan',
         'kode_meja',
-        'menu_id',
-        'jumlah',
-        'harga',
-        'catatan',
-        'status',
 
     ];
 
-    public function menu()
+    public function pesanan_detail()
     {
-        return $this->belongsTo(Menu::class, 'menu_id', 'id');
+        return $this->belongsTo(PesananDetail::class, 'menu_id', 'id');
     }
 }

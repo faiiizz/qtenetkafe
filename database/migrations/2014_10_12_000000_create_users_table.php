@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('no_hp')->nullable();
             $table->enum('role', ['superadmin', 'admin', 'karyawan'])->default('karyawan');
             $table->string('password');
-            $table->string('password_confirmation');
             $table->rememberToken();
             $table->timestamps();
         });

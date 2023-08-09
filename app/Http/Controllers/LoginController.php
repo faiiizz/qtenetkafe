@@ -53,6 +53,9 @@ class LoginController extends Controller
         $cek = $request->only('email', 'password');
         if(Auth::attempt($cek)){
             $request->session()->regenerate();
+            $user = Auth::user(); // Mengambil pengguna yang sedang login
+            session(['nama' => $user->nama]);
+            session(['avatar' => $user->avatar]);
             return redirect('/dashboard')->with('success', 'Login Successfully');
         }
         return back()->withErrors([

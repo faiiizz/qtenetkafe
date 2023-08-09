@@ -68,7 +68,6 @@
           <!-- /.col -->
         </div>
       </form>
-
       <div class="social-auth-links text-center mt-2 mb-3">
         <a href="/menufe" class="btn btn-block btn-danger">
           <i class="nav-icon fas fa-solid fa-chevron-down mr-2"></i> Back to Menu
